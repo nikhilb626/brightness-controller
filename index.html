@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+    .container{
+        background: url('bg.jpg') no-repeat center;
+        min-height: 100vh;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .brightness-box{
+        width: 400px;
+        height: 60px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+
+    }
+    .brightness-box i{
+        margin: 0 10px;
+
+    }
+    #range{
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        background: #0a85ff;
+        height: 3px;
+        outline: none;
+    }
+
+    #range::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        width: 22px;
+        height: 22px;
+        background: #333;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="brightness-box">
+            <i class="fa fa-sun"></i>
+            <input type="range" id="range" min="10" max="100" value="100">
+            <i class="fa fa-sun"></i>
+        </div>
+    </div>
+
+
+<script>
+    rangeInput=document.getElementById('range');
+    container=document.getElementsByClassName('container')[0];
+
+    rangeInput.addEventListener('change',function(){
+        container.style.filter="brightness("+rangeInput.value+"%)";
+    })
+</script>
+</body>
+</html>
